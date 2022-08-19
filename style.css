@@ -1,0 +1,143 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+:root {
+  --font-size-sm: clamp(1.28rem, 0.17vw + 1.21rem, 1.43rem);
+  --font-size-base: clamp(1.6rem, 0.34vw + 1.46rem, 1.9rem);
+  --font-size-md: clamp(2rem, 0.61vw + 1.76rem, 2.53rem);
+  --font-size-lg: clamp(2.5rem, 1vw + 2.1rem, 3.38rem);
+  --font-size-xl: clamp(3.13rem, 1.56vw + 2.5rem, 4.5rem);
+  --font-size-xxl: clamp(3.91rem, 2.38vw + 2.96rem, 6rem);
+  --font-size-xxxl: clamp(4.88rem, 3.54vw + 3.47rem, 8rem);
+
+  /* CSS HSL */
+  --rich-black-fogra-39: hsla(0, 0%, 3%, 1);
+  --platinum: hsla(180, 12%, 88%, 1);
+  --celadon-blue: hsla(194, 100%, 33%, 1);
+  --french-raspberry: hsla(347, 64%, 49%, 1);
+  --sheen-green: hsla(78, 69%, 50%, 1);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  color: var(--platinum);
+  background-color: var(--rich-black-fogra-39);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: 2rem;
+  background-color: var(--celadon-blue);
+  height: 10vh;
+}
+
+.heading-primary {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+}
+
+.paragraph {
+  font-size: var(--font-size-sm);
+}
+
+.app {
+  height: 90vh;
+  display: flex;
+}
+
+.left,
+.right {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.left {
+  background-color: var(--platinum);
+  color: var(--rich-black-fogra-39);
+}
+.right {
+  background-color: var(--rich-black-fogra-39);
+  color: var(--platinum);
+}
+
+.stadium__name {
+  font-size: var(--font-size-lg);
+}
