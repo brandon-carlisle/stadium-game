@@ -152,7 +152,8 @@ const stadiumNameRight = document.querySelector('.stadium__name--right');
 const clubNameLeft = document.querySelector('.club__name--left');
 const clubNameRight = document.querySelector('.club__name--right');
 
-const generateRandomNumber = () => Math.floor(Math.random() * 19) + 1;
+const generateRandomNumber = () => Math.floor(Math.random() * 20);
+console.log(generateRandomNumber());
 
 const getTwoTeams = function () {
   let team1Index = generateRandomNumber();
