@@ -122,11 +122,15 @@ body {
   position: relative;
 }
 
+body {
+  position: relative;
+}
+
 .score__container {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
   background-color: var(--celadon-blue);
   border: 1px solid var(--platinum);
   padding: 3rem;
@@ -139,6 +143,7 @@ body {
   height: 100%;
   display: grid;
   place-items: center;
+  align-content: center;
 }
 
 .left {
@@ -152,4 +157,8 @@ body {
 
 .stadium__name {
   font-size: var(--font-size-lg);
+}
+
+.club__name {
+  font-size: var(--font-size-sm);
 }
