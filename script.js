@@ -140,3 +140,15 @@ const teams = [
     fontColor: 'var(--rich-black-fogra-39)',
   },
 ];
+
+const header = document.querySelector('.header');
+const scoreContainer = document.querySelector('.score__container');
+const scoreValue = document.querySelector('.score__value');
+const left = document.querySelector('.left');
+const right = document.querySelector('.right');
+const stadiumNameLeft = document.querySelector('.stadium__name--left');
+const stadiumNameRight = document.querySelector('.stadium__name--right');
+
+stadiumNameLeft.textContent = teams[2].stadiumName;
+left.style.backgroundColor = teams[2].teamColor;
+left.style.color = teams[2].fontColor;

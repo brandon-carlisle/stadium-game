@@ -119,6 +119,18 @@ body {
 .app {
   height: 90vh;
   display: flex;
+  position: relative;
+}
+
+.score__container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--celadon-blue);
+  border: 1px solid var(--platinum);
+  padding: 3rem;
+  font-size: var(--font-size-md);
 }
 
 .left,
