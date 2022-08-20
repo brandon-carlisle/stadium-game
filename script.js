@@ -153,7 +153,7 @@ const clubNameLeft = document.querySelector('.club__name--left');
 const clubNameRight = document.querySelector('.club__name--right');
 
 const generateRandomNumber = () => Math.floor(Math.random() * 20);
-console.log(generateRandomNumber());
+// console.log(generateRandomNumber());
 
 const getTwoTeams = function () {
   let team1Index = generateRandomNumber();
@@ -162,10 +162,14 @@ const getTwoTeams = function () {
   return [teams[team1Index], teams[team2Index]];
 };
 
-const UpdateTeamsUI = function () {
+const checkIfHigher = function () {
+  return 1;
+};
+
+const updateTeamsUI = function () {
   const team1 = getTwoTeams()[0];
   const team2 = getTwoTeams()[1];
-  console.log(team1, team2);
+  // console.log(team1, team2);
 
   if (team1 !== team2) {
     left.style.backgroundColor = team1.teamColor;
@@ -178,12 +182,12 @@ const UpdateTeamsUI = function () {
     stadiumNameRight.textContent = team2.stadiumName;
     clubNameRight.textContent = team2.teamName;
   } else {
-    UpdateTeamsUI();
+    updateTeamsUI();
   }
 };
 
 document.addEventListener('keydown', (e) => {
   if (e.code === 'Space') {
-    UpdateTeamsUI();
+    updateTeamsUI();
   }
 });
