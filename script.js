@@ -102,6 +102,12 @@ const teams = [
     stadiumCapacity: 32384,
   },
   {
+    teamName: 'Tottenham Hotspur',
+    teamColor: '#f5f5f5',
+    stadiumName: 'Tottenham Hotspur Stadium',
+    stadiumCapacity: 62850,
+  },
+  {
     teamName: 'West Ham United',
     teamColor: '#7d2c3b',
     stadiumName: 'London Stadium',
@@ -114,3 +120,5 @@ const teams = [
     stadiumCapacity: 32750,
   },
 ];
+
+console.log(teams.length);
