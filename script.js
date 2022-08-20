@@ -152,3 +152,7 @@ const stadiumNameRight = document.querySelector('.stadium__name--right');
 stadiumNameLeft.textContent = teams[2].stadiumName;
 left.style.backgroundColor = teams[2].teamColor;
 left.style.color = teams[2].fontColor;
+
+stadiumNameRight.textContent = teams[5].stadiumName;
+right.style.backgroundColor = teams[5].teamColor;
+right.style.color = teams[5].fontColor;
