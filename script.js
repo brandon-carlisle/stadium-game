@@ -144,7 +144,7 @@ const teams = [
 const header = document.querySelector('.header');
 const app = document.querySelector('.app');
 const scoreContainer = document.querySelector('.score__container');
-const scoreValue = document.querySelector('.score__value');
+const scoreEl = document.querySelector('.score__value');
 const left = document.querySelector('.left');
 const right = document.querySelector('.right');
 const stadiumNameLeft = document.querySelector('.stadium__name--left');
@@ -152,24 +152,39 @@ const stadiumNameRight = document.querySelector('.stadium__name--right');
 const clubNameLeft = document.querySelector('.club__name--left');
 const clubNameRight = document.querySelector('.club__name--right');
 
-const generateRandomNumber = () => Math.floor(Math.random() * 20);
-// console.log(generateRandomNumber());
+const colorCorrect = 'var(--sheen-green)';
+const colorIncorrect = 'var(--french-raspberry)';
+
+let score = 0;
+
+// const generateRandomNumber = () => Math.floor(Math.random() * 20);
+
+const randomNumber = (max, min, except) => {
+  let num = Math.floor(Math.random() * (max - min + 1)) + min;
+  return num === except ? randomNumber(max, min, except) : num;
+};
 
 const getTwoTeams = function () {
-  let team1Index = generateRandomNumber();
-  let team2Index = generateRandomNumber();
+  let team1Index = randomNumber(19, 0, -1);
+  let team2Index = randomNumber(19, 0, team1Index);
 
   return [teams[team1Index], teams[team2Index]];
 };
 
-const checkIfHigher = function () {
-  return 1;
+const checkIfHigher = function (t1, t2) {
+  if (t1.stadiumCapacity >= t2.stadiumCapacity) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
+let team1;
+let team2;
+
 const updateTeamsUI = function () {
-  const team1 = getTwoTeams()[0];
-  const team2 = getTwoTeams()[1];
-  // console.log(team1, team2);
+  team1 = getTwoTeams()[0];
+  team2 = getTwoTeams()[1];
 
   if (team1 !== team2) {
     left.style.backgroundColor = team1.teamColor;
@@ -181,13 +196,39 @@ const updateTeamsUI = function () {
     right.style.color = team2.fontColor;
     stadiumNameRight.textContent = team2.stadiumName;
     clubNameRight.textContent = team2.teamName;
-  } else {
-    updateTeamsUI();
   }
 };
 
 document.addEventListener('keydown', (e) => {
   if (e.code === 'Space') {
+    // team1 = getTwoTeams()[0];
+    // team2 = getTwoTeams()[1];
     updateTeamsUI();
   }
+});
+
+app.addEventListener('click', function (e) {
+  if (e.target === left && checkIfHigher(team1, team2)) {
+    console.log('correct');
+    // scoreContainer.style.backgroundColor = colorCorrect;
+    header.style.backgroundColor = colorCorrect;
+    score++;
+  } else if (e.target === left && checkIfHigher(team2, team1)) {
+    console.log('incorrect');
+    // scoreContainer.style.backgroundColor = colorIncorrect;
+    header.style.backgroundColor = colorIncorrect;
+  }
+
+  if (e.target === right && checkIfHigher(team2, team1)) {
+    console.log('correct');
+    score++;
+    // scoreContainer.style.backgroundColor = colorCorrect;
+    header.style.backgroundColor = colorCorrect;
+  } else if (e.target === right && checkIfHigher(team1, team2)) {
+    console.log('incorrect');
+    // scoreContainer.style.backgroundColor = colorIncorrect;
+    header.style.backgroundColor = colorIncorrect;
+  }
+  updateTeamsUI();
+  scoreEl.textContent = score;
 });

@@ -104,7 +104,7 @@ body {
   margin: 0 auto;
   padding-inline: 2rem;
   background-color: var(--celadon-blue);
-  height: 10vh;
+  height: 6vh;
 }
 
 .heading-primary {
@@ -161,4 +161,11 @@ body {
 
 .club__name {
   font-size: var(--font-size-sm);
+}
+
+.instructions {
+  display: flex;
+  justify-content: space-between;
+  height: 4vh;
+  padding-inline: 2rem;
 }
