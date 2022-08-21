@@ -151,6 +151,8 @@ const stadiumNameLeft = document.querySelector('.stadium__name--left');
 const stadiumNameRight = document.querySelector('.stadium__name--right');
 const clubNameLeft = document.querySelector('.club__name--left');
 const clubNameRight = document.querySelector('.club__name--right');
+const answerCorrect = document.querySelector('.answer__correct');
+const answerIncorrect = document.querySelector('.answer__incorrect');
 
 const colorCorrect = 'var(--sheen-green)';
 const colorIncorrect = 'var(--french-raspberry)';
@@ -210,24 +212,24 @@ document.addEventListener('keydown', (e) => {
 app.addEventListener('click', function (e) {
   if (e.target === left && checkIfHigher(team1, team2)) {
     console.log('correct');
-    // scoreContainer.style.backgroundColor = colorCorrect;
-    header.style.backgroundColor = colorCorrect;
+    answerCorrect.classList.remove('hidden');
+    answerIncorrect.classList.add('hidden');
     score++;
   } else if (e.target === left && checkIfHigher(team2, team1)) {
     console.log('incorrect');
-    // scoreContainer.style.backgroundColor = colorIncorrect;
-    header.style.backgroundColor = colorIncorrect;
+    answerIncorrect.classList.remove('hidden');
+    answerCorrect.classList.add('hidden');
   }
 
   if (e.target === right && checkIfHigher(team2, team1)) {
     console.log('correct');
+    answerCorrect.classList.remove('hidden');
+    answerIncorrect.classList.add('hidden');
     score++;
-    // scoreContainer.style.backgroundColor = colorCorrect;
-    header.style.backgroundColor = colorCorrect;
   } else if (e.target === right && checkIfHigher(team1, team2)) {
     console.log('incorrect');
-    // scoreContainer.style.backgroundColor = colorIncorrect;
-    header.style.backgroundColor = colorIncorrect;
+    answerIncorrect.classList.remove('hidden');
+    answerCorrect.classList.add('hidden');
   }
   updateTeamsUI();
   scoreEl.textContent = score;

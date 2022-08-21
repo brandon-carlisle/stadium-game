@@ -144,6 +144,7 @@ body {
   display: grid;
   place-items: center;
   align-content: center;
+  cursor: pointer;
 }
 
 .left {
@@ -165,7 +166,32 @@ body {
 
 .instructions {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   height: 4vh;
-  padding-inline: 2rem;
+  padding: 1rem 2rem;
+}
+
+.answer__box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s;
+  opacity: 1;
+
+  font-size: var(--font-size-xl);
+  /* box-shadow: 1.4px 3.4px 2.8px rgba(0, 0, 0, 0.031),
+    3.6px 8.7px 7.1px rgba(0, 0, 0, 0.044),
+    7.4px 17.7px 14.5px rgba(0, 0, 0, 0.056),
+    15.3px 36.5px 29.9px rgba(0, 0, 0, 0.069),
+    42px 100px 82px rgba(0, 0, 0, 0.1); */
+
+  padding: 2rem;
+}
+
+.hidden {
+  display: none;
+  transform: translate(50%, 50%);
+  opacity: 0;
 }
